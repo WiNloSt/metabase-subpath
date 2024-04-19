@@ -1,0 +1,16 @@
+:80
+
+root * /data
+file_server
+
+reverse_proxy /metabase {
+  to host.docker.internal:3000
+  rewrite /
+}
+
+handle_path /metabase/* {
+  reverse_proxy {
+    to host.docker.internal:3000
+  }
+}
+

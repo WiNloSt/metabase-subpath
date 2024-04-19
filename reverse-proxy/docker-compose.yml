@@ -1,0 +1,9 @@
+version: '3'
+services:
+  reverse-proxy:
+    image: caddy:2
+    ports:
+      - 8000:80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./index.html:/data/index.html
